@@ -1,0 +1,15 @@
+@define-color bg #0e0e0e;
+@define-color fg #ebebeb;
+
+window#waybar {
+	background-color: @bg;
+	border: 1px solid @fg;
+	border-radius: 0;
+}
+
+* {
+	font-size: 13px;
+	font-family: IosevkaTerm Nerd Font Propo;
+	margin-left: 3px;
+	margin-right: 3px;
+}

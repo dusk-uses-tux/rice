@@ -1,0 +1,107 @@
+{
+  // ===== GENERAL BAR SETTINGS =====
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "bottom",
+  "height": 32,
+  "margin": 8,
+
+  // ===== MODULE PLACEMENT =====
+  "modules-left": [
+    "niri/workspaces",
+	"custom/divw"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    // "bluetooth", // disabled
+    // "network",   // disabled
+	"custom/divl",
+    "pulseaudio",
+	"custom/divl",
+    "cpu",
+	"custom/divl",
+    "memory",
+	"custom/divl",
+    "custom/notifications",
+	"custom/divl"
+  ],
+
+  // ===== WORKSPACES =====
+  "niri/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "󰮄",
+      "active": "󰆨"	
+    }
+  },
+
+  // ===== CPU =====
+  "cpu": {
+    "interval": 5,
+    "format": "  {}%",
+    "on-click": "alacritty -e btop"
+  },
+
+  // ===== CLOCK =====
+	"clock": {
+	    "format": "{:%H:%M}",
+	    "tooltip-format": "<tt>{calendar}</tt>",
+	    "calendar": {
+	        "mode": "month",
+	        "mode-mon-col": 3,
+	        "weeks-pos": "right",
+	        "on-scroll": 1,
+	        "format": {
+	        "today": "<span color='#ffbbbb'>{}</span>"
+	        }
+	    },
+	},
+
+  // ===== WINDOW TITLE (unused unless added to modules) =====
+  "niri/window": {
+    "format": "󰍜 {}",
+    "icon": false
+  },
+
+  // ===== AUDIO =====
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰋙",
+
+    "format-icons": {
+      "default": ["󰫃", "󰫅", "󰫈"]
+    },
+
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+
+    "on-click": "alacritty --class=Wiremix -e wiremix",
+    "on-click-right": "pamixer -t"
+  },
+
+  // ===== MEMORY =====
+  "memory": {
+    "interval": 20,
+    "format": "  {}%"
+  },
+
+  // ===== DIVIDER =====
+  "custom/divl": {
+  	"format": ""
+  },	
+  
+  "custom/divw": {
+  	"format": ""
+  },	
+
+  // ===== NOTIFICATIONS =====
+  "custom/notifications": {
+    "format": "󰮫",
+    "on-click": "swaync-client -t"
+  }
+}
