@@ -1,0 +1,127 @@
+# DriftWM configuration converted from Niri
+
+# --- General / Auto Window Positioning ---
+# "auto" snaps new windows adjacent to the focused window's cluster, 
+# mimicking tiling behavior. Falls back to "center" if no focused window.
+window_placement = "auto"
+
+# Commands to run at startup
+autostart = ["waybar", "awww-daemon"]
+
+# --- Input ---
+[input.keyboard]
+options = "compose:ralt"
+
+# --- Snapping (Mimics Niri Gaps & Tiling) ---
+[snap]
+enabled = true
+gap = 8.0               # Matches Niri's `gaps 8`
+distance = 24.0
+break_force = 32.0
+
+# --- Visuals / Borders / Shadows ---
+[decorations]
+# "minimal" acts like prefer-no-csd: removes titlebars but keeps borders/shadows
+default_mode = "minimal" 
+border_width = 2
+border_color = "#eeeeee33"       # Inactive border color
+border_color_focused = "#eeeeee" # Active border color
+shadow = false
+corner_radius = 0
+# --- Window Rules ---
+[[window_rules]]
+# DriftWM handles PiP natively by pinning it to the screen so it stays put 
+# while you pan around the canvas.
+app_id = "/firefox$/"
+title = "/^Picture-in-Picture$/"
+pinned_to_screen = true
+
+# --- Keybindings ---
+[keybindings]
+# Overview / Zoom out to see everything
+"mod+o" = "zoom-to-fit"
+
+# App launching
+"mod+t" = "exec alacritty"
+"mod+q" = "exec firefox"
+"alt+space" = "exec wofi --show drun --prompt Find..."
+"mod+x" = "exec wofi-emoji"
+"mod+e" = "exec nautilus -w"
+"mod+escape" = "exec wofi-power-menu"
+"mod+n" = "spawn swaync-client -t"
+"mod+l" = "spawn hyprlock"
+"mod+r" = "spawn notify-send 'This is an test notification' 'nyan nyan nyan nyan nyan nyan nyan nyan' '--icon=Pictures/test.jpg'"
+
+# Window control
+"mod+w" = "close-window"
+"mod+f" = "fit-window"             # Closest to maximize-to-edges
+"mod+shift+f" = "toggle-fullscreen"
+"mod+c" = "center-window"
+"mod+d" = "fit-window"             # switch-preset-column-width equivalent
+"mod+tab" = "cycle-windows forward"
+"mod+shift+s" = "spawn flameshot gui"
+
+# Focus / Camera movement (Replaces Niri column/workspace navigation)
+"mod+left" = "center-nearest left"
+"mod+down" = "center-nearest down"
+"mod+up" = "center-nearest up"
+"mod+right" = "center-nearest right"
+
+"mod+ctrl+left" = "pan-viewport left"
+"mod+ctrl+down" = "pan-viewport down"
+"mod+ctrl+up" = "pan-viewport up"
+"mod+ctrl+right" = "pan-viewport right"
+
+# Moving windows around the canvas
+"mod+shift+left" = "nudge-window left"
+"mod+shift+down" = "nudge-window down"
+"mod+shift+up" = "nudge-window up"
+"mod+shift+right" = "nudge-window right"
+
+# Monitor movement
+"mod+shift+ctrl+left" = "send-to-output left"
+"mod+shift+ctrl+down" = "send-to-output down"
+"mod+shift+ctrl+up" = "send-to-output up"
+"mod+shift+ctrl+right" = "send-to-output right"
+
+# Workspace numbers map to canvas bookmarks/positions in DriftWM
+"mod+1" = "go-to -1750 1750"
+"mod+2" = "go-to 1750 1750"
+"mod+3" = "go-to 1750 -1750"
+"mod+4" = "go-to -1750 -1750"
+"mod+5" = "go-to 0 0"
+"mod+6" = "go-to 0 0"
+"mod+7" = "go-to 0 0"
+"mod+8" = "go-to 0 0"
+"mod+9" = "go-to 0 0"
+
+# Zooming (Replaces Niri's column width adjustments)
+"mod+equal" = "zoom-in"
+"mod+minus" = "zoom-out"
+
+# Audio controls (PipeWire / WirePlumber)
+"XF86AudioRaiseVolume" = "spawn wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"
+"XF86AudioLowerVolume" = "spawn wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"
+"XF86AudioMute" = "spawn wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+"XF86AudioMicMute" = "spawn wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+# Media controls
+"XF86AudioNext" = "spawn playerctl next"
+"XF86AudioPause" = "spawn playerctl play-pause"
+"XF86AudioPlay" = "spawn playerctl play-pause"
+"XF86AudioPrev" = "spawn playerctl previous"
+
+# Brightness
+"XF86MonBrightnessUp" = "spawn brightnessctl --class=backlight set +10%"
+"XF86MonBrightnessDown" = "spawn brightnessctl --class=backlight set 10%-"
+
+[mouse.anywhere]
+# Scroll navigation maps to canvas zooming
+"mod+wheel-up" = "zoom-in"
+"mod+wheel-down" = "zoom-out"
+
+[background]
+# DriftWM can render wallpapers natively. 
+# type can be: "default" (dot grid), "wallpaper", "tile", "shader", "none"
+type = "wallpaper"
+path = "Pictures/wal/wallhaven-jxr2ep.jpg"

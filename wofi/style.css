@@ -1,0 +1,60 @@
+@import url(".config/wofi/colors.css");
+
+* {
+	 transition: all 0.3s cubic-bezier(0.43, -0.03, 0, 1.2);
+     border-radius: 0px;
+}
+
+window {
+	border: 1px solid @window_fg_color;
+    background-color: @window_bg_color;
+    font-family: GoMono Nerd Font;
+}
+
+#input {
+    margin: 5px;
+    color: @window_fg_color;
+    background-color: @window_bg_color;
+	font-size: 17px;
+}
+
+
+#outer-box {
+    margin: 5px;
+}
+
+#text {
+    border: none;
+    color: @window_fg_color;
+	font-size: 15px;
+	margin: 5px;
+}
+
+#entry {
+	padding-left: 12px;
+}
+
+#entry:selected {
+    background-color: transparent;
+    box-shadow: 14px 2px 13px -20px alpha(@window_fg_color, 0.7) inset;
+    border-left: 1px solid @fullscreen_color;
+	border-radius: 0px;
+    outline: none;
+}
+
+#input:focus {
+	margin-bottom: 4px;
+	padding: 8px;
+    border-left: 1px solid @fullscreen_color;
+    box-shadow: 14px 2px 13px -20px alpha(#F9E2AF, 0.7) inset;
+    margin-left: 8px;
+}
+
+#entry {
+    transition: all 0.3s ease;
+    margin-left: 0px;
+}
+
+#entry:selected {
+    margin-left: 8px;
+}
