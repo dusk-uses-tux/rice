@@ -1,0 +1,220 @@
+@define-color bg #0e0e0e;
+@define-color fg #ebebeb;
+
+* {
+  font-family: "GoMono Nerd Font";
+  border-radius: 0;
+  font-size: 13px;
+}
+
+.notification-row {
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* remove all rounding everywhere */
+* {
+  border-radius: 0;
+}
+
+/* main notif */
+.notification {
+  background: @bg;
+  border: 1px solid @fg;
+  color: @fg;
+  margin: 3px -2px 3px 0;
+}
+
+.notification-default-action:hover {
+  background: @bg;
+  box-shadow: 14px 2px 13px -14px alpha(@fg, 0.7) inset;
+  border-left: 1px solid @fg;
+  transition: all 300ms ease;
+}
+
+/* close button */
+.close-button {
+  background: @fg;
+  color: @bg;
+  padding: 0;
+  margin-top: 5px;
+  margin-right: 5px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  border: none;
+}
+
+.notification:hover .close-button {
+  opacity: 1;
+}
+
+.close-button:hover {
+  opacity: 0.8;
+}
+
+/* actions */
+.notification-action {
+  border: 1px solid @fg;
+}
+
+/* inline reply */
+.inline-reply-entry {
+  background: @bg;
+  color: @fg;
+  border: 1px solid @fg;
+}
+
+.inline-reply-button {
+  margin-top: 4px;
+  margin-left: 4px;
+  background: @bg;
+  border: 1px solid @fg;
+  color: @fg;
+}
+
+.inline-reply-button:disabled {
+  opacity: 0.4;
+}
+
+.inline-reply-button:hover {
+  background: @accent_bg_color;
+}
+
+/* text */
+.summary {
+  font-size: 13px;
+  font-weight: 700;
+  color: @fg;
+}
+
+.time {
+  font-size: 13px;
+  font-weight: 700;
+  color: @fg;
+  margin-right: 10px;
+}
+
+.body {
+  font-size: 13px;
+  color: @fg;
+}
+
+/* control center */
+.control-center {
+  margin: 8px;
+  margin-top: 200px;
+  background: @bg;
+  border: 1px solid @fg;
+}
+
+/* widgets */
+.widget-title {
+  color: @fg;
+  background: @bg;
+  padding: 5px 10px;
+  margin: 10px;
+  font-size: 1.8rem;
+}
+
+.widget-title>button {
+  font-size: 2rem;
+  color: @fg;
+  background: @bg;
+}
+
+.widget-title>button:hover {
+  background: @accent_bg_color;
+  color: @bg;
+}
+
+.widget-dnd {
+  background: @bg;
+  padding: 0px 12px;
+  margin: 0px 12px;
+  color: @fg;
+}
+
+.widget-dnd>switch {
+  border: 1px solid @fg;
+  background: @bg;
+}
+
+.widget-dnd>switch:hover {
+  box-shadow: 14px 2px 13px -14px alpha(@fg, 0.7) inset;
+  border-left: 1px solid @fg;
+}
+
+.widget-dnd>switch slider {
+    background-color: @fg;
+}
+
+/* labels */
+.widget-label>label {
+  font-size: 1rem;
+  color: @fg;
+  margin: 10px;
+}
+
+/* buttons grid */
+.widget-buttons-grid {
+  font-size: x-large;
+  padding: 5px;
+  margin: 0px 10px 10px 10px;
+  background: @bg;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button {
+  margin: 0px;
+  padding: 6px 44px;
+  background: @bg;
+  color: @fg;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background: @bg;
+  color: @fg;
+  box-shadow: 14px 2px 13px -14px alpha(@fg, 0.7) inset;
+  border-left: 1px solid @fg;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:checked {
+  background: @accent_bg_color;
+  color: @bg;
+}
+
+/* sliders */
+.widget-volume,
+.widget-backlight {
+  background: @bg;
+  padding: 5px;
+  margin: 5px 10px;
+  color: @fg;
+}
+
+/* mpris */
+.widget-mpris {
+  color: @fg;
+  background: @bg;
+  margin: 0px 10px 10px 10px;
+}
+
+.widget-mpris>box>button,
+.widget-mpris-player,
+.widget-mpris-album-art {
+  margin: 10px;
+}
+
+picture.mpris-background {
+  opacity: 0;
+}
+
+/* action buttons */
+.notification-action>button {
+  color: @fg;
+}
+
+.notification-action>button:hover {
+  background: @accent_bg_color;
+  color: @bg;
+}
