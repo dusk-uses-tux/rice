@@ -8,7 +8,6 @@
 
   // ===== MODULE PLACEMENT =====
   "modules-left": [
-    "niri/workspaces",
 	"custom/divw"
   ],
 
@@ -17,8 +16,6 @@
   ],
 
   "modules-right": [
-    // "bluetooth", // disabled
-    // "network",   // disabled
 	"custom/divl",
     "pulseaudio",
 	"custom/divl",
@@ -29,16 +26,6 @@
     "custom/notifications",
 	"custom/divl"
   ],
-
-  // ===== WORKSPACES =====
-  "niri/workspaces": {
-    "on-click": "activate",
-    "format": "{icon}",
-    "format-icons": {
-      "default": "󰮄",
-      "active": "󰆨"	
-    }
-  },
 
   // ===== CPU =====
   "cpu": {
@@ -62,12 +49,6 @@
 	    },
 	},
 
-  // ===== WINDOW TITLE (unused unless added to modules) =====
-  "niri/window": {
-    "format": "󰍜 {}",
-    "icon": false
-  },
-
   // ===== AUDIO =====
   "pulseaudio": {
     "format": "{icon} {volume}%",
@@ -87,7 +68,8 @@
   // ===== MEMORY =====
   "memory": {
     "interval": 20,
-    "format": "  {}%"
+    "format": "  {}%",
+    "on-click": "alacritty -e btop"
   },
 
   // ===== DIVIDER =====

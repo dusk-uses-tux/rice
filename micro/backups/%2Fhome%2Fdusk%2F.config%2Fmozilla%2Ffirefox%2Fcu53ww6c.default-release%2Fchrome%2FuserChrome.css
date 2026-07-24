@@ -1,0 +1,225 @@
+/* ===================== */
+/* === base / resets === */
+/* ===================== */
+
+/* remove ALL rounded corners in firefox UI */
+*,
+.tab-background,
+.tabbrowser-tab,
+#urlbar,
+#searchbar {
+  border-radius: 0px !important;
+}
+
+/* background */
+:root,
+#navigator-toolbox,
+#browser,
+#appcontent,
+html,
+body {
+  background: rgba(19, 19, 19, 0.6) !important;
+}
+
+/* ================= */
+/* === variables === */
+/* ================= */
+
+:root {
+  --bg: #0e0e0e;
+  --fg: #ebebeb;
+
+  --toolbar-bgcolor: var(--opaque) !important;
+  --toolbar-color: var(--accent) !important;
+
+  --tab-background-color: transparent !important;
+  --tab-selected-bgcolor: var(--opaque) !important;
+  --tab-text-color: var(--opaque) !important;
+
+  --toolbar-field-background-color: var(--opaque) !important;
+  --toolbar-field-focus-background-color: var(--opaque) !important;
+
+  --toolbar-top-separator-color: transparent !important;
+  --chrome-content-separator-color: transparent !important;
+}
+
+/* ==================== */
+/* === tabs styling === */
+/* ==================== */
+
+.tabbrowser-tab,
+.tab-background {
+  background: transparent !important;
+}
+
+.tab-background[selected] {
+  background: rgba(21, 19, 18, 0.3) !important;
+}
+
+#TabsToolbar {
+  --tab-background-color: transparent !important;
+  --tab-selected-bgcolor: rgba(21, 19, 18, 0.3) !important;
+}
+
+.tabbrowser-tab[selected] .tab-background {
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent) !important;
+  box-sizing: border-box !important;
+}
+
+/* ================== */
+/* === animations === */
+/* ================== */
+
+/* smooth hover movement */
+.tabbrowser-tab {
+  transition: transform 0.4s ease !important;
+}
+
+.tabbrowser-tab:hover {
+  transform: translateX(8px) !important;
+}
+
+.tabbrowser-tab:hover + .tabbrowser-tab,
+.tabbrowser-tab:has(+ .tabbrowser-tab:hover) {
+  transform: translateX(4px) !important;
+}
+
+.tabbrowser-tab:hover + .tabbrowser-tab + .tabbrowser-tab,
+.tabbrowser-tab:has(+ .tabbrowser-tab + .tabbrowser-tab:hover) {
+  transform: translateX(2px) !important;
+}
+
+/* label fading */
+.tabbrowser-tab .tab-label {
+  transition: opacity 0.2s ease !important;
+  opacity: 0.5;
+}
+
+.tabbrowser-tab:hover .tab-label {
+  opacity: 1 !important;
+}
+
+.tabbrowser-tab:hover + .tabbrowser-tab .tab-label,
+.tabbrowser-tab:has(+ .tabbrowser-tab:hover) .tab-label {
+  opacity: 0.75 !important;
+}
+
+.tabbrowser-tab:hover + .tabbrowser-tab + .tabbrowser-tab .tab-label,
+.tabbrowser-tab:has(+ .tabbrowser-tab + .tabbrowser-tab:hover) .tab-label {
+  opacity: 0.5 !important;
+}
+
+.tabbrowser-tab[selected] .tab-label {
+  opacity: 1 !important;
+}
+
+/* ======================= */
+/* === icons / buttons === */
+/* ======================= */
+
+/* hide icons */
+.tabbrowser-tab:not([pinned]) .tab-icon-image {
+  display: none !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* hide new tab & close tab visually */
+#tabs-newtab-button,
+#vertical-tabs-newtab-button,
+.tabbrowser-tab .tab-close-button {
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* allow hovering */
+#tabs-newtab-button,
+#vertical-tabs-newtab-button {
+  pointer-events: auto !important;
+}
+
+/* show on hover */
+#tabs-newtab-button:hover,
+.tabbrowser-tab:hover {
+  opacity: 1 !important;
+  transform: translateX(4px) !important;
+}
+
+/* close button hover */
+.tab-close-button:hover {
+  opacity: 1 !important;
+}
+
+/* ===================== */
+/* === ripple effect === */
+/* ===================== */
+
+#tabs-newtab-button,
+#vertical-tabs-newtab-button,
+.tab-background {
+  border-radius: 0 !important;
+  transition: border-radius 0.1s ease;
+}
+
+#tabs-newtab-button:active,
+#vertical-tabs-newtab-button:active,
+.tabbrowser-tab:active .tab-background {
+  border-radius: 16px !important;
+}
+
+/* =================== */
+/* === newtab anim === */
+/* =================== */
+
+/* animate ONLY the background, not the tab */
+.tabbrowser-tab[fadein] .tab-background {
+  animation: slideDown 0.25s ease forwards !important;
+}
+
+/* animation without transform conflict */
+@keyframes slideDown {
+  from {
+    translate: 0 -20px;
+    opacity: 0;
+    scale: 0.98;
+  }
+  to {
+    translate: 0 0;
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+#tabs-newtab-button,
+#vertical-tabs-newtab-button {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* ================== */
+/* === misc fixes === */
+/* ================== */
+
+#commonDialogWindow {
+  background-color: var(--opaque) !important;
+  background-image: none !important;
+  color: var(--accent) !important;
+}
+
+
+/* ================== */
+/* === RTL layout === */
+/* ================== */
+
+
+#tabbrowser-tabs {
+  direction: rtl !important;
+  padding-right: 3px;
+}
+
+/* keep tab text normal (not mirrored) */
+.tabbrowser-tab {
+  direction: ltr !important;
+}

@@ -1,0 +1,82 @@
+[general]
+import = ["~/.config/alacritty/colors.toml"]
+[terminal.shell]
+program = "/bin/zsh"
+
+[window.padding]
+x = 22
+y = 22
+
+[font]
+size = 10
+
+[font.normal]
+family = "IosevkaTerm Nerd Font Propo"
+
+[cursor.style]
+shape = "Beam"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "Paste"
+
+# ctrl+c (interrupt)
+[[keyboard.bindings]]
+key = "C"
+mods = "Control"
+chars = "\u0003"
+
+# scrolling
+[[keyboard.bindings]]
+key = "PageUp"
+action = "ScrollPageUp"
+
+[[keyboard.bindings]]
+key = "PageDown"
+action = "ScrollPageDown"
+
+# font size increase
+[[keyboard.bindings]]
+key = "Equals"
+mods = "Control"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Plus"
+mods = "Control"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "NumpadAdd"
+mods = "Control"
+action = "IncreaseFontSize"
+
+# font size decrease
+[[keyboard.bindings]]
+key = "Minus"
+mods = "Control"
+action = "DecreaseFontSize"
+
+[[keyboard.bindings]]
+key = "NumpadSubtract"
+mods = "Control"
+action = "DecreaseFontSize"
+
+# reset font size
+[[keyboard.bindings]]
+key = "Key0"
+mods = "Control"
+action = "ResetFontSize"
+
+[[keyboard.bindings]]
+key = "Numpad0"
+mods = "Control"
+action = "ResetFontSize"
+
+[terminal]

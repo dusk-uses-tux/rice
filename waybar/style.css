@@ -1,5 +1,6 @@
 @define-color bg #0e0e0e;
 @define-color fg #ebebeb;
+@define-color ac #d64933;
 
 window#waybar {
 	background-color: @bg;
@@ -8,8 +9,14 @@ window#waybar {
 }
 
 * {
+	transition: all  0.1s linear;
 	font-size: 13px;
 	font-family: IosevkaTerm Nerd Font Propo;
 	margin-left: 3px;
 	margin-right: 3px;
+	color:  @fg;
+}
+
+*:hover {
+	color: @ac;
 }

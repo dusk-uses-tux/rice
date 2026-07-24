@@ -1,4 +1,6 @@
-@import url(".config/wofi/colors.css");
+@define-color bg #0e0e0e;
+@define-color fg #ebebeb;
+@define-color ac #d64933;
 
 * {
 	 transition: all 0.3s cubic-bezier(0.43, -0.03, 0, 1.2);
@@ -6,26 +8,27 @@
 }
 
 window {
-	border: 1px solid @window_fg_color;
-    background-color: @window_bg_color;
+    background-color: @bg;
     font-family: GoMono Nerd Font;
+	margin: 8px;
 }
 
 #input {
     margin: 5px;
-    color: @window_fg_color;
-    background-color: @window_bg_color;
+    color: @fg;
+    background-color: @bg;
 	font-size: 17px;
 }
 
 
 #outer-box {
-    margin: 5px;
+    border: 1px solid @fg;
+    padding: 8px;
 }
 
 #text {
     border: none;
-    color: @window_fg_color;
+    color: @fg;
 	font-size: 15px;
 	margin: 5px;
 }
@@ -36,25 +39,21 @@ window {
 
 #entry:selected {
     background-color: transparent;
-    box-shadow: 14px 2px 13px -20px alpha(@window_fg_color, 0.7) inset;
-    border-left: 1px solid @fullscreen_color;
+    border-left: 1px solid @ac;
 	border-radius: 0px;
     outline: none;
+    margin-left: 8px;
 }
 
 #input:focus {
 	margin-bottom: 4px;
 	padding: 8px;
-    border-left: 1px solid @fullscreen_color;
-    box-shadow: 14px 2px 13px -20px alpha(#F9E2AF, 0.7) inset;
+    border-left: 1px solid @ac;
     margin-left: 8px;
+    outline: none;
 }
 
 #entry {
     transition: all 0.3s ease;
     margin-left: 0px;
-}
-
-#entry:selected {
-    margin-left: 8px;
 }

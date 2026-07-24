@@ -8,7 +8,7 @@ appearance = {
     gaps            = 8,
     smart_gaps      = false,
 
-    root_color          = 0x222222ff,
+    root_color          = 0x0e0e0eff,
     inner_border_color  = 0xd64933ff,
     outer_border_color  = 0x0e0e0eff,
 
@@ -46,7 +46,7 @@ autostart = {
     "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP",
     "systemctl --user import-environment WAYLAND_DISPLAY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP",
     "waybar",
-    "awww-daemon",
+    "swaybg -i ~/Pictures/wal/*",
 }
 
 keybinds = {
@@ -98,7 +98,7 @@ keybinds = {
     { mods = {"logo", "shift"}, key = "e", action = "quit" },
 }
 
-for i = 1, 9 do
+for i = 1, 4 do
     local mask = 1 << (i - 1)
 
     table.insert(keybinds, {
